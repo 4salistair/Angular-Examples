@@ -1,0 +1,24 @@
+
+<h1> Hey well done it worked</h1>
+
+    <br>
+    
+        <h2>Server with ID {{serverid}} is currently {{  serverStatus }} and it is {{ getserverColor() }}</h2>
+
+   <br> 
+        
+        <input 
+            type="text" 
+            class= "form-control"
+            (input)="onUpdateUserName($event)"
+            [(ngModel)] = "userName">
+        <br> 
+        <br> 
+
+        <button 
+            class= "btn btn-primary"
+            [disabled]="!enableButton"
+            (click) = " onclearuserName()" >
+            Add User Name 
+            
+        </button>
