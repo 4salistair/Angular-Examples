@@ -1,4 +1,3 @@
-
 <h1> Hey well done it worked</h1>
 
     <br>
@@ -22,3 +21,18 @@
             Add User Name 
             
         </button>
+
+        <br>
+        <br>
+
+        <button
+            class= "btn btn-primary"
+            (click) = "setparagraphBoolean()"
+            >
+            Diplay Details
+
+
+        </button>
+
+        <p *ngIf= "paragraphBoolean"> This is the text to be displayed</p>
+        <p *ngFor="let dateStamp of paragraphArray"> {{dateStamp}} </p>
