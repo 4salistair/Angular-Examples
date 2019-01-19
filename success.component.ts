@@ -17,7 +17,9 @@ export class SuccessComponent {   // declares the 'class'... need to find out mo
     serverColor: string = 'green';                  //  This section declres variables, using types.
     userName: string = 'Example User Name';         // **************
     enableButton: boolean = true;
-    
+    paragraphBoolean: boolean= false;
+    clickLog: string; 
+    paragraphArray= ['clickLog'];        // declares an Array
 
 
     getserverColor() {                  // declares a function this called back in the 
@@ -37,10 +39,10 @@ export class SuccessComponent {   // declares the 'class'... need to find out mo
 
     }
     
-    onclearuserName(){                  // EVENT BOUND to the clear user button on click // (click) = " onclearuserName()
+        onclearuserName(){                  // EVENT BOUND to the clear user button on click // (click) = " onclearuserName()
 
-        this.userName = '';             // clears the userName Variable 
-        this.enableButton = false;       // sets boolean to true. 
+            this.userName = '';             // clears the userName Variable 
+            this.enableButton = false;       // sets boolean to true. 
 
         }
 
@@ -50,5 +52,12 @@ export class SuccessComponent {   // declares the 'class'... need to find out mo
             this.enableButton = true;    // PROPERTY BOUND to enable add user button.
         }
     
- 
+
+        setparagraphBoolean(){                                // class called in DIRECTIVE
+
+            this.paragraphBoolean = !this.paragraphBoolean;   // toggle boolean to enable toggle of display of text in html
+            this.clickLog = Date();                           // set var clicklog to be date and time  
+            this.paragraphArray.push(this.clickLog);          // push date stamp (clicklog) in to array (Date()) 
+
+        }
 }
