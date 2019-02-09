@@ -1,38 +1,47 @@
+
 <h1> Hey well done it worked</h1>
 
     <br>
-    
+<!-- ***  some string interpulation ***-->    
         <h2>Server with ID {{serverid}} is currently {{  serverStatus }} and it is {{ getserverColor() }}</h2>
-
+        <h2>User Name: {{ userName }} </h2> 
    <br> 
         
+<!-- ***   Text field, event bound to onUpdateUserName() function on update                                  ***-->
+<!-- ***   (input) event invokes onUpdateUserName passing the $event, (the keystroke) value to the function  ***-->
+<!-- ***   [(ngModel)] is an in biuld directive enabling the input of the element to be assigned variable    ***-->
         <input 
             type="text" 
             class= "form-control"
             (input)="onUpdateUserName($event)"
-            [(ngModel)] = "userName">
+            [(ngModel)] = "userName"
+            #userNameField>  <!-- #Username is a 'local reference' is onclearUser below-->
         <br> 
         <br> 
 
+<!-- ***   class is a bootstrap btn class, property bound boolean enablebutton to the disabled button element   ***-->
+<!-- ***   onclearuserName() is event bound to the click event                                                  ***-->
         <button 
             class= "btn btn-primary"
             [disabled]="!enableButton"
-            (click) = " onclearuserName()" >
-            Add User Name 
-            
+            (click) = "onclearuserName(userNameField)" >  <!-- passed the input element properties to onclear -->
         </button>
-
         <br>
         <br>
 
+<!-- ***   class is a bootstrap button class, setparagraphBoolean() is bound to the click event ***-->
         <button
             class= "btn btn-primary"
             (click) = "setparagraphBoolean()"
             >
             Diplay Details
-
-
         </button>
 
+<!-- *** *ngIf evaluates the expression in this case "parapgraphBoolean" if true includes the <p>  ***-->
+<!-- *** *ngFor loops through paragraphArray and assigns dateStamp, then data bound to {{dateStamp}} ***-->
         <p *ngIf= "paragraphBoolean"> This is the text to be displayed</p>
         <p *ngFor="let dateStamp of paragraphArray"> {{dateStamp}} </p>
+
+        <input type="text" class="form-control" [(ngModel)]="newServerName">
+
+<!-- *** enables a text box with where the input is bound to newServerName-->
